@@ -1,6 +1,5 @@
-
 import type { Metadata } from "next";
-import {Poppins} from "next/font/google"
+import { Poppins } from "next/font/google";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import "./globals.css";
 import theme from "../theme";

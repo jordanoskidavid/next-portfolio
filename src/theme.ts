@@ -1,30 +1,28 @@
-'use client';
+"use client";
 
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     background: {
-      default: '#222831',
-      paper: '#393E46',
+      default: "#222831",
+      paper: "#393E46",
     },
     text: {
-      primary: '#EEEEEE',
-      secondary: '#BBBBBB',
+      primary: "#EEEEEE",
+      secondary: "#BBBBBB",
     },
     primary: {
-      main: '#00ADB5',
+      main: "#00ADB5",
     },
     secondary: {
-      main: '#393E46',
+      main: "#393E46",
     },
-
   },
   typography: {
-    fontFamily: 'var(--font-poppins), sans-serif',
+    fontFamily: "var(--font-poppins), sans-serif",
   },
-  
 });
 
 export default theme;
