@@ -12,15 +12,25 @@ export default function Home() {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
         minHeight: "100vh",
         width: "100%",
         overflowX: "hidden",
+        mt: 0,
       }}
     >
-      <Container maxWidth="lg">
+      <Container
+        maxWidth="lg"
+        sx={{
+          mt: 0,
+          pt: 0,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <>
           <Navbar />
           <Landing />
