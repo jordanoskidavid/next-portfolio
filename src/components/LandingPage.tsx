@@ -2,6 +2,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import Image from "next/image";
+import theme from "@/theme";
 
 export default function Landing() {
   return (
@@ -75,10 +76,17 @@ export default function Landing() {
                 fontWeight: "bold",
                 gap: "10px",
                 fontSize: "18px",
-                textShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
+                textShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)",
+                transition: "all 0.5s ease",
+                "&:hover": {
+                  backgroundColor: theme.palette.text.primary,
+                  color: theme.palette.background.paper,
+                  letterSpacing: "0.2px",
+                  boxShadow: "0px 1px 1px rgba(0,0,0,0.2)",
+                },
               }}
             >
-              Hire Me
+              Let's talk
             </Button>
           </Box>
         </Box>
