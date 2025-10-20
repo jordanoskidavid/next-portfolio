@@ -1,8 +1,9 @@
 "use client";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import CustomNavbarButton from "./custom-ui/nav-button";
+import AnimatedName from "./custom-ui/animated-name";
 
 export default function Navbar() {
   return (
@@ -13,31 +14,29 @@ export default function Navbar() {
         width: "100%",
         boxSizing: "border-box",
         textTransform: "none",
+        borderColor: "red",
         backgroundColor: "transparent",
       }}
     >
-      <Typography
-        sx={{ fontSize: "24px", px: "96px", py: "48px", fontWeight: "bold" }}
-      >
-        David Jordanoski
-      </Typography>
+      <AnimatedName />
 
       <Box
-        sx={{ display: "flex", gap: 2, px: "96px", py: "48px" }}
+        sx={{
+          display: "flex",
+          gap: 2,
+          px: "96px",
+          py: "48px",
+        }}
         color="text.primary"
       >
-        <Button color="inherit" sx={{ textTransform: "none" }}>
-          Home
-        </Button>
-        <Button color="inherit" sx={{ textTransform: "none" }}>
+        <CustomNavbarButton sx={{ color: "inherit" }}>Home</CustomNavbarButton>
+        <CustomNavbarButton sx={{ color: "inherit" }}>
           Projects
-        </Button>
-        <Button color="inherit" sx={{ textTransform: "none" }}>
-          About
-        </Button>
-        <Button color="inherit" sx={{ textTransform: "none" }}>
+        </CustomNavbarButton>
+        <CustomNavbarButton sx={{ color: "inherit" }}>About</CustomNavbarButton>
+        <CustomNavbarButton sx={{ color: "inherit" }}>
           Contact Me
-        </Button>
+        </CustomNavbarButton>
       </Box>
     </Toolbar>
   );
