@@ -14,14 +14,13 @@ export default function AnimatedName() {
   return (
     <Typography
       sx={{
-        fontSize: "24px",
-        px: "96px",
-        py: "48px",
         fontWeight: "bold",
         transition: "all 0.4s ease",
         display: "inline-block",
+        px: { xs: 2, sm: 4, md: 6, lg: 12 },
+        py: { xs: 1, sm: 2, md: 3, lg: 6 },
+        fontSize: { xs: "18px", sm: "20px", md: "24px", lg: "28px" },
         "&:hover": {
-          color: "primary.main",
           letterSpacing: "0.8px",
           cursor: "default",
         },
