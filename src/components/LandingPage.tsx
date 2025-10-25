@@ -1,6 +1,5 @@
 "use client";
 import { Box, Button, Typography } from "@mui/material";
-import DownloadIcon from "@mui/icons-material/Download";
 import Image from "next/image";
 import theme from "@/theme";
 
@@ -9,25 +8,26 @@ export default function Landing() {
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row",
-        alignItems: "flex-start",
+        flexDirection: { xs: "column", md: "row" },
+        alignItems: { xs: "center", md: "flex-start" },
         justifyContent: "space-between",
-        pt: 10,
-        gap: "48px",
+        pt: { xs: 6, md: 10 },
+        gap: { xs: 4, md: "48px" },
+        textAlign: { xs: "center", md: "left" },
       }}
     >
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-start",
-          gap: "24px",
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: { xs: "center", sm: "flex-start" },
+          gap: { xs: 2, sm: "24px" },
         }}
       >
         <Box
           sx={{
-            mt: "50px",
-            mr: "-5px",
+            mt: { xs: 0, sm: "50px" },
+            display: { xs: "none", sm: "block" },
           }}
         >
           <Image
@@ -38,22 +38,19 @@ export default function Landing() {
             style={{ objectFit: "contain" }}
           />
         </Box>
-
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "48px",
+            alignItems: { xs: "center", sm: "flex-start" },
+            gap: { xs: 3, md: "48px" },
           }}
         >
           <Typography
             variant="h2"
             sx={{
-              fontSize: "96px",
+              fontSize: { xs: "50px", sm: "64px", md: "96px" },
               fontWeight: "bold",
-              textAlign: "left",
-              display: "inline-block",
               textTransform: "uppercase",
               lineHeight: 1,
             }}
@@ -72,10 +69,10 @@ export default function Landing() {
                 textTransform: "none",
                 borderRadius: "24px",
                 py: "10px",
-                px: "32px",
+                px: { xs: "24px", md: "32px" },
                 fontWeight: "bold",
+                fontSize: { xs: "16px", md: "18px" },
                 gap: "10px",
-                fontSize: "18px",
                 textShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)",
                 transition: "all 0.5s ease",
                 "&:hover": {
@@ -92,8 +89,24 @@ export default function Landing() {
         </Box>
       </Box>
 
-      <Box sx={{ mt: -3 }}>
-        <Image src="/doodles.png" alt="doodles" width={440} height={440} />
+      {/* Right Section (Image) */}
+      <Box
+        sx={{
+          mt: { xs: 4, md: -3 },
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Image
+          src="/doodles.png"
+          alt="doodles"
+          width={440}
+          height={440}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
+        />
       </Box>
     </Box>
   );
