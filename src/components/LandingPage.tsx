@@ -89,7 +89,6 @@ export default function Landing() {
         </Box>
       </Box>
 
-      {/* Right Section (Image) */}
       <Box
         sx={{
           mt: { xs: 4, md: -3 },
