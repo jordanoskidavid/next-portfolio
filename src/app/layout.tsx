@@ -16,10 +16,10 @@ const PREVIEW_IMAGE = "/landing_page_me.jpg";
 
 export const metadata: Metadata = {
   title: "David Jordanoski - Software Engineer",
-  description: "Portfolio site from David Jordanoski",
+  description: "Portfolio site - David Jordanoski",
   openGraph: {
     title: "David Jordanoski - Software Engineer",
-    description: "Portfolio site from David Jordanoski",
+    description: "Portfolio site - David Jordanoski",
     url: "https://davidjordanoski.vercel.app/",
     siteName: "David Jordanoski",
     images: [
