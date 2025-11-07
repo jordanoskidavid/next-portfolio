@@ -13,7 +13,7 @@ export default function AnimatedName() {
   }, []);
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 0, ml: 2 }}>
+    <Box sx={{ display: "flex", alignItems: "center", gap: 0 }}>
       <Image
         src="/cropped_circle_image.png"
         alt="circle-image"

@@ -1,25 +1,44 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import "./globals.css";
 import theme from "../theme";
+import EmotionRegistry from "@/lib/EmotionRegistry";
+import ClientOnly from "@/lib/ClientOnly";
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+const PREVIEW_IMAGE = "/landing_page_me.jpg";
 
 export const metadata: Metadata = {
   title: "David Jordanoski - Software Engineer",
   description: "Portfolio site from David Jordanoski",
+  openGraph: {
+    title: "David Jordanoski - Software Engineer",
+    description: "Portfolio site from David Jordanoski",
+    url: "https://davidjordanoski.vercel.app/",
+    siteName: "David Jordanoski",
+    images: [
+      {
+        url: PREVIEW_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "David Jordanoski Portfolio",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
@@ -53,10 +72,12 @@ export default function RootLayout({
       </head>
 
       <body className={poppins.variable}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+        <EmotionRegistry>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <ClientOnly>{children}</ClientOnly>
+          </ThemeProvider>
+        </EmotionRegistry>
       </body>
     </html>
   );
