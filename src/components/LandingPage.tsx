@@ -8,26 +8,48 @@ export default function Landing() {
     <Box
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        alignItems: { xs: "center", md: "flex-start" },
-        justifyContent: "space-between",
-        pt: { xs: 6, md: 10 },
-        gap: { xs: 4, md: "48px" },
-        textAlign: { xs: "center", md: "left" },
+        flexDirection: { xs: "column", sm: "column", md: "column", lg: "row" },
+        alignItems: {
+          xs: "center",
+          sm: "center",
+          md: "center",
+          lg: "flex-start",
+        },
+        justifyContent: {
+          xs: "center",
+          sm: "center",
+          md: "center",
+          lg: "space-between",
+        },
+        pt: { xs: 6, sm: 8, md: 8, lg: 10 },
+        gap: { xs: 4, sm: 6, md: 6, lg: "48px" },
+        textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
       }}
     >
+      {/* Left text + arrow */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          alignItems: { xs: "center", sm: "flex-start" },
-          gap: { xs: 2, sm: "24px" },
+          flexDirection: {
+            xs: "column",
+            sm: "column",
+            md: "column",
+            lg: "row",
+          },
+          alignItems: {
+            xs: "center",
+            sm: "center",
+            md: "center",
+            lg: "flex-start",
+          },
+          gap: { xs: 2, sm: 4, md: 4, lg: "24px" },
         }}
       >
+        {/* Arrow image: only on lg */}
         <Box
           sx={{
-            mt: { xs: 0, sm: "50px" },
-            display: { xs: "none", sm: "block" },
+            mt: { xs: 0, sm: 0, md: 0, lg: "50px" },
+            display: { xs: "none", sm: "none", md: "none", lg: "block" },
           }}
         >
           <Image
@@ -38,18 +60,25 @@ export default function Landing() {
             style={{ objectFit: "contain" }}
           />
         </Box>
+
+        {/* Text and button */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: { xs: "center", sm: "flex-start" },
-            gap: { xs: 3, md: "48px" },
+            alignItems: {
+              xs: "center",
+              sm: "center",
+              md: "center",
+              lg: "flex-start",
+            },
+            gap: { xs: 3, sm: 4, md: 4, lg: 4 },
           }}
         >
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "50px", sm: "64px", md: "96px" },
+              fontSize: { xs: "55px", sm: "80px", md: "100px", lg: "96px" },
               fontWeight: "bold",
               textTransform: "uppercase",
               lineHeight: 1,
@@ -69,9 +98,9 @@ export default function Landing() {
                 textTransform: "none",
                 borderRadius: "24px",
                 py: "10px",
-                px: { xs: "24px", md: "32px" },
+                px: { xs: "24px", sm: "28px", md: "28px", lg: "32px" },
                 fontWeight: "bold",
-                fontSize: { xs: "16px", md: "18px" },
+                fontSize: { xs: "16px", sm: "17px", md: "17px", lg: "18px" },
                 gap: "10px",
                 textShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)",
                 transition: "all 0.5s ease",
@@ -89,20 +118,27 @@ export default function Landing() {
         </Box>
       </Box>
 
+      {/* Doodles Image */}
       <Box
         sx={{
-          mt: { xs: 4, md: -3 },
+          mt: { xs: 0, sm: 0, md: 0, lg: -3 },
           display: "flex",
-          justifyContent: "center",
+          justifyContent: {
+            xs: "center",
+            sm: "center",
+            md: "center",
+            lg: "flex-start",
+          },
+          width: { xs: "80%", sm: "70%", md: "400px", lg: "400px" },
         }}
       >
         <Image
-          src="/doodles.png"
+          src="/side_image_doodles.png"
           alt="doodles"
           width={440}
           height={440}
           style={{
-            maxWidth: "100%",
+            width: "100%",
             height: "auto",
           }}
         />

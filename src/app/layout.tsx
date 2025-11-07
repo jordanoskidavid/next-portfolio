@@ -12,10 +12,26 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+const PREVIEW_IMAGE = "/landing_page_me.jpg";
 
 export const metadata: Metadata = {
   title: "David Jordanoski - Software Engineer",
   description: "Portfolio site from David Jordanoski",
+  openGraph: {
+    title: "David Jordanoski - Software Engineer",
+    description: "Portfolio site from David Jordanoski",
+    url: "https://davidjordanoski.vercel.app/",
+    siteName: "David Jordanoski",
+    images: [
+      {
+        url: PREVIEW_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "David Jordanoski Portfolio",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
