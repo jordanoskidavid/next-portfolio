@@ -58,10 +58,10 @@ export default function Navbar() {
               Home
             </CustomNavbarButton>
             <CustomNavbarButton sx={{ color: "inherit" }}>
-              Projects
+              About
             </CustomNavbarButton>
             <CustomNavbarButton sx={{ color: "inherit" }}>
-              About
+              Projects
             </CustomNavbarButton>
             <CustomNavbarButton sx={{ color: "inherit" }}>
               Contact Me

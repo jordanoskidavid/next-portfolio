@@ -26,7 +26,6 @@ export default function Landing() {
         textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
       }}
     >
-      {/* Left text + arrow */}
       <Box
         sx={{
           display: "flex",
@@ -45,7 +44,6 @@ export default function Landing() {
           gap: { xs: 2, sm: 4, md: 4, lg: "24px" },
         }}
       >
-        {/* Arrow image: only on lg */}
         <Box
           sx={{
             mt: { xs: 0, sm: 0, md: 0, lg: "50px" },
@@ -118,7 +116,6 @@ export default function Landing() {
         </Box>
       </Box>
 
-      {/* Doodles Image */}
       <Box
         sx={{
           mt: { xs: 0, sm: 0, md: 0, lg: -3 },
