@@ -1,5 +1,6 @@
 "use client";
 import About from "@/components/About";
+import AboutTables from "@/components/AboutTables";
 import Footer from "@/components/Footer";
 import Landing from "@/components/LandingPage";
 import Navbar from "@/components/Navbar";
@@ -35,6 +36,7 @@ export default function Home() {
           <Navbar />
           <Landing />
           <About />
+          <AboutTables />
           <Projects />
           <Footer />
         </>
