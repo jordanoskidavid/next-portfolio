@@ -1,11 +1,19 @@
-export default function Projects(){
-    return(
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
+export default function Projects() {
+  return (
     <>
-    <p>Projects</p>
-    <ul>
-        <li>proekt1</li>
-        <li>proekt2</li>
-        <li>proekt3</li>
-    </ul>
-    </>)
-};
+      <Typography
+        variant="h1"
+        sx={{
+          fontSize: { xs: 40, md: 64 },
+          fontWeight: "bold",
+          color: "text.primary",
+        }}
+      >
+        Projects
+      </Typography>
+    </>
+  );
+}

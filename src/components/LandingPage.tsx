@@ -59,7 +59,6 @@ export default function Landing() {
           />
         </Box>
 
-        {/* Text and button */}
         <Box
           sx={{
             display: "flex",
