@@ -11,6 +11,8 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function Projects() {
   const projects = [
@@ -49,7 +51,8 @@ export default function Projects() {
     },
   ];
 
-  // Start from the middle
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [centerIndex, setCenterIndex] = useState(
     Math.floor(projects.length / 2)
   );
@@ -58,7 +61,6 @@ export default function Projects() {
   const next = () =>
     setCenterIndex((prev) => Math.min(prev + 1, projects.length - 1));
 
-  // Prepare visible projects with null placeholders
   const visibleProjects = [
     projects[centerIndex - 1] || null,
     projects[centerIndex],
@@ -74,93 +76,175 @@ export default function Projects() {
           fontWeight: "bold",
           color: "text.primary",
           mb: 4,
+          mt: "100px",
           textAlign: "center",
         }}
       >
         Projects
       </Typography>
 
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 2,
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <IconButton
-          onClick={prev}
-          disabled={centerIndex === 0}
-          sx={{ position: "absolute", left: 0, zIndex: 2 }}
+      {isMobile ? (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+          }}
         >
-          <ArrowBackIosNewIcon />
-        </IconButton>
+          <IconButton
+            onClick={prev}
+            disabled={centerIndex === 0}
+            sx={{
+              position: "absolute",
+              left: -45, // outside the card
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 2,
+            }}
+          >
+            <ArrowBackIosNewIcon />
+          </IconButton>
 
-        {visibleProjects.map((p, i) => {
-          if (!p)
+          {projects.map((p, i) => {
+            const isCenter = i === centerIndex;
             return (
-              <Box
-                key={i}
-                sx={{ width: { xs: "70%", sm: "25%" }, minWidth: 250 }}
-              />
+              <Card
+                key={p.title}
+                sx={{
+                  display: isCenter ? "flex" : "none",
+                  width: "75vw",
+                  maxWidth: 320,
+                  height: 450,
+                  borderRadius: 4,
+                  boxShadow: 3,
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  transition: "all 0.5s",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={p.image}
+                  alt={p.title}
+                  sx={{ height: 180, objectFit: "cover" }}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+                    {p.title}
+                  </Typography>
+                  <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
+                    {p.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    href={p.github}
+                    target="_blank"
+                    sx={{ textTransform: "none" }}
+                  >
+                    View on GitHub
+                  </Button>
+                </CardActions>
+              </Card>
             );
+          })}
 
-          const isCenter = i === 1;
-          return (
-            <Card
-              key={p.title}
-              sx={{
-                width: { xs: "70%", sm: isCenter ? "30%" : "25%" },
-                minWidth: 250,
-                height: 450,
-                borderRadius: 4,
-                boxShadow: 3,
-                display: "flex",
-                flexDirection: "column",
-                overflow: "hidden",
-                opacity: isCenter ? 1 : 0.5,
-                transform: isCenter ? "scale(1)" : "scale(0.9)",
-                transition: "all 0.5s",
-              }}
-            >
-              <CardMedia
-                component="img"
-                image={p.image}
-                alt={p.title}
-                sx={{ height: 180, objectFit: "cover" }}
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
-                  {p.title}
-                </Typography>
-                <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
-                  {p.description}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button
-                  size="small"
-                  href={p.github}
-                  target="_blank"
-                  sx={{ textTransform: "none" }}
-                >
-                  View on GitHub
-                </Button>
-              </CardActions>
-            </Card>
-          );
-        })}
-
-        <IconButton
-          onClick={next}
-          disabled={centerIndex === projects.length - 1}
-          sx={{ position: "absolute", right: 0, zIndex: 2 }}
+          {/* Next arrow */}
+          <IconButton
+            onClick={next}
+            disabled={centerIndex === projects.length - 1}
+            sx={{
+              position: "absolute",
+              right: -45,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 2,
+            }}
+          >
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </Box>
+      ) : (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 2,
+            position: "relative",
+            overflow: "hidden",
+          }}
         >
-          <ArrowForwardIosIcon />
-        </IconButton>
-      </Box>
+          <IconButton
+            onClick={prev}
+            disabled={centerIndex === 0}
+            sx={{ position: "absolute", left: 0, zIndex: 2 }}
+          >
+            <ArrowBackIosNewIcon />
+          </IconButton>
+
+          {visibleProjects.map((p, i) => {
+            if (!p)
+              return (
+                <Box key={i} sx={{ width: { sm: "25%" }, minWidth: 250 }} />
+              );
+
+            const isCenter = i === 1;
+            return (
+              <Card
+                key={p.title}
+                sx={{
+                  width: isCenter ? "30%" : "25%",
+                  minWidth: 250,
+                  height: 450,
+                  borderRadius: 4,
+                  boxShadow: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  opacity: isCenter ? 1 : 0.5,
+                  transform: isCenter ? "scale(1)" : "scale(0.9)",
+                  transition: "all 0.5s",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={p.image}
+                  alt={p.title}
+                  sx={{ height: 180, objectFit: "cover" }}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+                    {p.title}
+                  </Typography>
+                  <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
+                    {p.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    href={p.github}
+                    target="_blank"
+                    sx={{ textTransform: "none" }}
+                  >
+                    View on GitHub
+                  </Button>
+                </CardActions>
+              </Card>
+            );
+          })}
+          <IconButton
+            onClick={next}
+            disabled={centerIndex === projects.length - 1}
+            sx={{ position: "absolute", right: 0, zIndex: 2 }}
+          >
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </Box>
+      )}
     </>
   );
 }
