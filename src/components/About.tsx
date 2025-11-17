@@ -15,7 +15,7 @@ export default function About() {
           lg: "flex-start",
         },
         justifyContent: "space-between",
-        pt: { xs: "120px", md: "160px" },
+        pt: { xs: "150px", md: "160px" },
         px: { xs: "20px", md: "96px" },
         gap: { xs: "40px", md: "80px" },
       }}
