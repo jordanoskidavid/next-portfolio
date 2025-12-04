@@ -17,37 +17,55 @@ import { useTheme } from "@mui/material/styles";
 export default function Projects() {
   const projects = [
     {
-      title: "Portfolio Website",
-      image: "/portfolio.png",
+      title: "GoGrab",
+      image: "/GoGrab.png",
       description:
-        "A personal website built with Next.js, MUI, and TypeScript. Fully responsive with smooth animations and clean UI.",
+        "GoGrab is a Go-based web scraping backend that implements JWT-secured user authentication, concurrent web crawling, and CRUD APIs for managing extracted datasets.",
       github: "#",
     },
     {
-      title: "Stock Management App",
-      image: "/stockapp.png",
+      title: "Weathero",
+      image: "/Weathero.jpg",
       description:
-        "Fullstack inventory system using Go, MySQL, Docker, and React. Includes full auth, pagination, and analytics.",
-      github: "#",
+        "WeatherApp is an Android application built with Kotlin, Jetpack Compose, Room, and Firebase, providing real-time weather data, multi-provider authentication, and GPS-based location services.",
+      github: "https://github.com/jordanoskidavid/weathero-kotlin",
     },
     {
-      title: "React UI Components",
-      image: "/uikit.png",
+      title: "GoStock",
+      image: "/GoStock.png",
       description:
-        "A reusable set of UI components designed with MUI and Tailwind. Focus on accessibility and flexibility.",
-      github: "#",
+        "GoStock is a full-stack inventory and order management system built with Go, MySQL, Docker, and a React/TypeScript frontend that includes authentication, product/category management, order handling, reporting, and a modern responsive UI.",
+      github: "https://github.com/jordanoskidavid/go-stock-react",
     },
     {
-      title: "Next.js Dashboard",
-      image: "/dashboard.png",
-      description: "Admin dashboard template using Next.js + MUI.",
-      github: "#",
+      title: "Roomie",
+      image: "/Roomie.png",
+      description:
+        "Roomie is a roommate-matching platform built with React.js and .NET, allowing users to find compatible roommates based on personalized preferences and filters.",
+      github:
+        "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2023/10/GitHub-Private-Repository-FI.png",
+    },
+
+    {
+      title: "MyCal",
+      image: "/MyCal.png",
+      description:
+        "MyCal is a full-stack MEAN application that provides calorie intake calculations, user input processing, and dynamic nutrition tracking using MongoDB, Express, Angular, and Node.js.",
+      github: "https://github.com/jordanoskidavid/my-cal-angular-express",
     },
     {
-      title: "API Wrapper",
-      image: "/api.png",
-      description: "TypeScript wrapper for external APIs.",
-      github: "#",
+      title: "OneTimeSecret",
+      image: "/OneTimeSecret.png",
+      description:
+        "OneTimeSecret is a clone to the real application and it is a PHP and MySQL-based secret-sharing app that encrypts sensitive data, generates one-time access links, and automatically deletes secrets after viewing or expiry.",
+      github: "https://github.com/jordanoskidavid/one-time-secret-php",
+    },
+    {
+      title: "CineMatch",
+      image: "/CineMatch.png",
+      description:
+        "A Python movie recommendation app that uses fuzzy string matching and a Tkinter GUI to filter movies by genre, language, and director from a local JSON dataset.",
+      github: "https://github.com/jordanoskidavid/movieRecommend-python",
     },
   ];
 
@@ -97,7 +115,7 @@ export default function Projects() {
             disabled={centerIndex === 0}
             sx={{
               position: "absolute",
-              left: -45, // outside the card
+              left: -45,
               top: "50%",
               transform: "translateY(-50%)",
               zIndex: 2,
@@ -133,7 +151,16 @@ export default function Projects() {
                   <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
                     {p.title}
                   </Typography>
-                  <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
+                  <Typography
+                    sx={{
+                      color: "text.secondary",
+                      fontSize: 14,
+                      textAlign: "justify",
+                      textAlignLast: "left",
+                      textJustify: "inter-word",
+                      hyphens: "auto",
+                    }}
+                  >
                     {p.description}
                   </Typography>
                 </CardContent>
@@ -142,7 +169,7 @@ export default function Projects() {
                     size="small"
                     href={p.github}
                     target="_blank"
-                    sx={{ textTransform: "none" }}
+                    sx={{ textTransform: "none", mt: "-15px" }}
                   >
                     View on GitHub
                   </Button>
@@ -151,7 +178,6 @@ export default function Projects() {
             );
           })}
 
-          {/* Next arrow */}
           <IconButton
             onClick={next}
             disabled={centerIndex === projects.length - 1}
@@ -196,7 +222,7 @@ export default function Projects() {
               <Card
                 key={p.title}
                 sx={{
-                  width: isCenter ? "30%" : "25%",
+                  width: isCenter ? "30%" : "30%",
                   minWidth: 250,
                   height: 450,
                   borderRadius: 4,
@@ -219,7 +245,13 @@ export default function Projects() {
                   <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
                     {p.title}
                   </Typography>
-                  <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
+                  <Typography
+                    sx={{
+                      color: "text.secondary",
+                      fontSize: 14,
+                      textAlign: "justify",
+                    }}
+                  >
                     {p.description}
                   </Typography>
                 </CardContent>
