@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Landing from "@/components/LandingPage";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
@@ -38,6 +39,7 @@ export default function Home() {
           <About />
           <AboutTables />
           <Projects />
+          <Skills />
           <Footer />
         </>
       </Container>

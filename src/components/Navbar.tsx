@@ -170,7 +170,7 @@ export default function Navbar() {
             lineHeight: 1,
           }}
         >
-          Projects
+          About
         </CustomNavbarButton>
         <Divider
           sx={{ width: "100%", m: 0, borderColor: "rgba(81, 81, 81, 0.3)" }}
@@ -188,7 +188,7 @@ export default function Navbar() {
             lineHeight: 1,
           }}
         >
-          About
+          Projects
         </CustomNavbarButton>
         <Divider
           sx={{ width: "100%", m: 0, borderColor: "rgba(81, 81, 81, 0.3)" }}

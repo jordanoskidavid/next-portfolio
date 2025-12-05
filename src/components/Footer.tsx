@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <ul>
+      <ul style={{ marginTop: 10 }}>
         <li>Home</li>
         <li>Projects</li>
         <li>About</li>
