@@ -31,6 +31,13 @@ export default function Projects() {
       github: "https://github.com/jordanoskidavid/weathero-kotlin",
     },
     {
+      title: "OneTimeSecret",
+      image: "/OneTimeSecret.png",
+      description:
+        "OneTimeSecret is a clone to the real application and it is a PHP and MySQL-based secret-sharing app that encrypts sensitive data, generates one-time access links, and automatically deletes secrets after viewing or expiry.",
+      github: "https://github.com/jordanoskidavid/one-time-secret-php",
+    },
+    {
       title: "GoStock",
       image: "/GoStock.png",
       description:
@@ -45,7 +52,6 @@ export default function Projects() {
       github:
         "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2023/10/GitHub-Private-Repository-FI.png",
     },
-
     {
       title: "MyCal",
       image: "/MyCal.png",
@@ -53,12 +59,13 @@ export default function Projects() {
         "MyCal is a full-stack MEAN application that provides calorie intake calculations, user input processing, and dynamic nutrition tracking using MongoDB, Express, Angular, and Node.js.",
       github: "https://github.com/jordanoskidavid/my-cal-angular-express",
     },
+
     {
-      title: "OneTimeSecret",
-      image: "/OneTimeSecret.png",
+      title: "Purple Kingdom",
+      image: "/PurpleKingdom.png",
       description:
-        "OneTimeSecret is a clone to the real application and it is a PHP and MySQL-based secret-sharing app that encrypts sensitive data, generates one-time access links, and automatically deletes secrets after viewing or expiry.",
-      github: "https://github.com/jordanoskidavid/one-time-secret-php",
+        "Purple Kingdom is a Unity-based 2D game developed in C#, implementing custom game logic, physics interactions, and a tile-based world with sprite animation.",
+      github: "https://github.com/jordanoskidavid/purple-kingdom-csharp",
     },
     {
       title: "CineMatch",
