@@ -6,6 +6,7 @@ import "./globals.css";
 import theme from "../theme";
 import EmotionRegistry from "@/lib/EmotionRegistry";
 import ClientOnly from "@/lib/ClientOnly";
+import SmoothScrollProvider from "@/lib/smoothScroll";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -75,6 +76,7 @@ export default function RootLayout({
         <EmotionRegistry>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <SmoothScrollProvider />
             <ClientOnly>{children}</ClientOnly>
           </ThemeProvider>
         </EmotionRegistry>

@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Link, Typography } from "@mui/material";
 import Image from "next/image";
 import theme from "@/theme";
 
@@ -88,29 +88,36 @@ export default function Landing() {
           </Typography>
 
           <Box sx={{ display: "flex", gap: "24px" }}>
-            <Button
-              color="inherit"
-              sx={{
-                backgroundColor: "#00ADB5",
-                textTransform: "none",
-                borderRadius: "24px",
-                py: "10px",
-                px: { xs: "24px", sm: "28px", md: "28px", lg: "32px" },
-                fontWeight: "bold",
-                fontSize: { xs: "16px", sm: "17px", md: "17px", lg: "18px" },
-                gap: "10px",
-                textShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)",
-                transition: "all 0.5s ease",
-                "&:hover": {
-                  backgroundColor: theme.palette.text.primary,
-                  color: theme.palette.background.paper,
-                  letterSpacing: "0.2px",
-                  boxShadow: "0px 1px 1px rgba(0,0,0,0.2)",
-                },
-              }}
+            <Link
+              href="mailto:jordanoski.david16@gmail.com"
+              underline="none"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Let's talk
-            </Button>
+              <Button
+                sx={{
+                  backgroundColor: "#00ADB5",
+                  textTransform: "none",
+                  color: "text.primary",
+                  borderRadius: "24px",
+                  py: "10px",
+                  px: { xs: "24px", sm: "28px", md: "28px", lg: "32px" },
+                  fontWeight: "bold",
+                  fontSize: { xs: "16px", sm: "17px", md: "17px", lg: "18px" },
+                  gap: "10px",
+                  textShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)",
+                  transition: "all 0.5s ease",
+                  "&:hover": {
+                    backgroundColor: theme.palette.text.primary,
+                    color: theme.palette.background.paper,
+                    letterSpacing: "0.2px",
+                    boxShadow: "0px 1px 1px rgba(0,0,0,0.2)",
+                  },
+                }}
+              >
+                Let's talk
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Box>
