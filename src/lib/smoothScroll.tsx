@@ -2,7 +2,13 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+// Global reference for Lenis
+let lenisInstance: Lenis | null = null;
 
+// Export a function to access it
+export function getLenis() {
+  return lenisInstance;
+}
 export default function SmoothScrollProvider() {
   useEffect(() => {
     const lenis = new Lenis({

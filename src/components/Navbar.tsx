@@ -12,8 +12,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import ClearIcon from "@mui/icons-material/Clear";
-
-export default function Navbar() {
+import { getLenis } from "@/lib/smoothScroll";
+interface NavbarProps {
+  scrollToSection: (section: "home" | "about" | "projects" | "contact") => void;
+}
+export default function Navbar({ scrollToSection }: NavbarProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
@@ -54,16 +57,28 @@ export default function Navbar() {
               color: "text.primary",
             }}
           >
-            <CustomNavbarButton sx={{ color: "inherit" }}>
+            <CustomNavbarButton
+              sx={{ color: "inherit" }}
+              onClick={() => scrollToSection("home")}
+            >
               Home
             </CustomNavbarButton>
-            <CustomNavbarButton sx={{ color: "inherit" }}>
+            <CustomNavbarButton
+              sx={{ color: "inherit" }}
+              onClick={() => scrollToSection("about")}
+            >
               About
             </CustomNavbarButton>
-            <CustomNavbarButton sx={{ color: "inherit" }}>
+            <CustomNavbarButton
+              sx={{ color: "inherit" }}
+              onClick={() => scrollToSection("projects")}
+            >
               Projects
             </CustomNavbarButton>
-            <CustomNavbarButton sx={{ color: "inherit" }}>
+            <CustomNavbarButton
+              sx={{ color: "inherit" }}
+              onClick={() => scrollToSection("contact")}
+            >
               Contact Me
             </CustomNavbarButton>
           </Box>
@@ -142,7 +157,10 @@ export default function Navbar() {
 
         <CustomNavbarButton
           fullWidth
-          onClick={handleClose}
+          onClick={() => {
+            handleClose();
+            scrollToSection("home");
+          }}
           sx={{
             justifyContent: "flex-start",
             fontSize: 20,
@@ -160,7 +178,10 @@ export default function Navbar() {
 
         <CustomNavbarButton
           fullWidth
-          onClick={handleClose}
+          onClick={() => {
+            handleClose();
+            scrollToSection("about");
+          }}
           sx={{
             justifyContent: "flex-start",
             fontSize: 20,
@@ -178,7 +199,10 @@ export default function Navbar() {
 
         <CustomNavbarButton
           fullWidth
-          onClick={handleClose}
+          onClick={() => {
+            handleClose();
+            scrollToSection("projects");
+          }}
           sx={{
             justifyContent: "flex-start",
             fontSize: 20,
@@ -196,7 +220,10 @@ export default function Navbar() {
 
         <CustomNavbarButton
           fullWidth
-          onClick={handleClose}
+          onClick={() => {
+            handleClose();
+            scrollToSection("contact");
+          }}
           sx={{
             justifyContent: "flex-start",
             fontSize: 20,
