@@ -1,21 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
-import Lenis from "lenis";
-// Global reference for Lenis
-let lenisInstance: Lenis | null = null;
+import { initLenis } from "./lenisInstance";
 
-// Export a function to access it
-export function getLenis() {
-  return lenisInstance;
-}
 export default function SmoothScrollProvider() {
   useEffect(() => {
-    const lenis = new Lenis({
+    const lenis = initLenis({
       autoRaf: true,
       duration: 2,
       smoothWheel: true,
-      touchMultiplier: 2, // adjust as needed    // enable smooth scrolling on mobile
+      touchMultiplier: 2,
     });
 
     return () => lenis.destroy();

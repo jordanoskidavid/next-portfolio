@@ -16,6 +16,7 @@ const poppins = Poppins({
 const PREVIEW_IMAGE = "/landing_page_me.jpg";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://davidjordanoski.vercel.app"),
   title: "David Jordanoski - Software Engineer",
   description: "Portfolio site - David Jordanoski",
   openGraph: {
