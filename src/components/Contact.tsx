@@ -102,6 +102,8 @@ export default function Contact() {
               width: { xs: 80, md: 100, lg: 100, xl: 100 },
               height: { xs: 80, md: 100, lg: 100, xl: 100 },
               position: "relative",
+              borderRadius: "50%",
+              overflow: "hidden",
             }}
           >
             <Image
