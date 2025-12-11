@@ -7,20 +7,6 @@ import { keyframes } from "@mui/system";
 import { Link } from "@mui/material";
 
 export default function Contact() {
-  const rotate = keyframes`
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  `;
-
-  const rotateStyle = {
-    animation: `${rotate} 6s linear infinite`,
-    display: "inline-block",
-  };
-
   return (
     <>
       <Typography
@@ -41,6 +27,8 @@ export default function Contact() {
         sx={{
           display: "flex",
           justifyContent: "center",
+          alignItems: "center", // <-- vertically center if heights differ
+
           gap: { xs: 4, md: 8 },
         }}
       >
@@ -52,7 +40,6 @@ export default function Contact() {
         >
           <Box
             sx={{
-              ...rotateStyle,
               width: { xs: 75, md: 90, lg: 90, xl: 90 },
               height: { xs: 75, md: 90, lg: 90, xl: 90 },
               position: "relative",
@@ -75,7 +62,6 @@ export default function Contact() {
         >
           <Box
             sx={{
-              ...rotateStyle,
               width: { xs: 80, md: 100, lg: 100, xl: 100 },
               height: { xs: 80, md: 80, lg: 80, xl: 80 },
               position: "relative",
@@ -98,7 +84,6 @@ export default function Contact() {
         >
           <Box
             sx={{
-              ...rotateStyle,
               width: { xs: 80, md: 100, lg: 100, xl: 100 },
               height: { xs: 80, md: 100, lg: 100, xl: 100 },
               position: "relative",
