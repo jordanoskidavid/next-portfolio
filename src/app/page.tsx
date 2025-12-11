@@ -9,8 +9,34 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import { useRef } from "react";
 
 export default function Home() {
+  const landingRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const aboutTablesRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const scrollToSection = (
+    section:
+      | "home"
+      | "about"
+      | "aboutTables"
+      | "projects"
+      | "skills"
+      | "contact"
+  ) => {
+    const map = {
+      home: landingRef,
+      about: aboutRef,
+      aboutTables: aboutTablesRef,
+      projects: projectsRef,
+      skills: skillsRef,
+      contact: contactRef,
+    };
+    map[section].current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <Box
       sx={{
@@ -35,13 +61,21 @@ export default function Home() {
         }}
       >
         <>
-          <Navbar />
+          <div ref={landingRef}>
+            <Navbar scrollToSection={scrollToSection} />
+          </div>
           <Landing />
-          <About />
+          <div ref={aboutRef}>
+            <About />
+          </div>
           <AboutTables />
-          <Projects />
+          <div ref={projectsRef}>
+            <Projects />
+          </div>
           <Skills />
-          <Contact />
+          <div ref={contactRef}>
+            <Contact />
+          </div>
           <Footer />
         </>
       </Container>
