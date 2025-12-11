@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     "http://192.168.0.16:3000", // your local network origin
     "http://192.168.0.0/16", // optional LAN CIDR or other hosts
   ],
+  images: {
+    domains: ["davidjordanoski.vercel.app", "davidjordanoski.dev"],
+  },
 };
 
 export default nextConfig;
