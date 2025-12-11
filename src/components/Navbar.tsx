@@ -12,7 +12,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import ClearIcon from "@mui/icons-material/Clear";
-import { getLenis } from "@/lib/smoothScroll";
 interface NavbarProps {
   scrollToSection: (section: "home" | "about" | "projects" | "contact") => void;
 }

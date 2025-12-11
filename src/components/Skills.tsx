@@ -12,13 +12,20 @@ const skills = [
   { name: "Docker", image: "/dockerlogo.png" },
   { name: "Python", image: "/pythonlogo.png" },
   { name: "Typescript", image: "/typescriptlogo.png" },
+  { name: "Azure", image: "/azurelogo.png" },
+  { name: "DotNet", image: "/dotnet.png" },
+  { name: "MongoDB", image: "/mongodb.png" },
+  { name: "MySQL", image: "/mysqllogo.png" },
+  { name: "Next.js", image: "/nextjs.png" },
+  { name: "NodeJS", image: "/node.png" },
+  { name: "Redis", image: "/redislogo.png" },
 ];
 
 export default function Skills() {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const logoSize = isXs ? 80 : 150;
+  const logoSize = isXs ? 100 : 150;
   const gap = isXs ? 30 : 40;
 
   const scrollingSkills = [...skills, ...skills];
