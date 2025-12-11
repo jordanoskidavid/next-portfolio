@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const skills = [
   { name: "React", image: "/reactlogo.png" },
@@ -16,30 +15,13 @@ const skills = [
 ];
 
 export default function Skills() {
-  const [index, setIndex] = useState(0);
-  const [fade, setFade] = useState(true); // toggle fade in/out
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const logosToShow = isXs ? 3 : 4;
   const logoSize = isXs ? 80 : 150;
+  const gap = isXs ? 30 : 40;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false); // start fade out
-      setTimeout(() => {
-        setIndex((prev) => (prev + logosToShow) % skills.length);
-        setFade(true);
-      }, 400);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [logosToShow]);
-
-  let visible = skills.slice(index, index + logosToShow);
-  if (visible.length < logosToShow) {
-    visible = [...visible, ...skills.slice(0, logosToShow - visible.length)];
-  }
+  const scrollingSkills = [...skills, ...skills];
 
   return (
     <>
@@ -49,43 +31,31 @@ export default function Skills() {
           fontSize: { xs: 40, md: 64 },
           fontWeight: "bold",
           color: "text.primary",
-          mb: 4,
-          mt: "100px",
+          mb: 7,
+          mt: "80px",
           textAlign: "center",
         }}
       >
         Skills
       </Typography>
 
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "40px",
-            width: `${logosToShow * (logoSize + 20)}px`,
-            opacity: fade ? 1 : 0,
-            transition: "opacity 0.5s ease-in-out", // fading effect
-          }}
-        >
-          {visible.map((skill, i) => (
+      <div className="skills-track-wrapper">
+        <div className="skills-track">
+          {scrollingSkills.map((skill, idx) => (
             <div
-              key={skill.name}
-              className="float"
-              style={{ animationDelay: `${i * 0.3}s` }}
+              key={`${skill.name}-${idx}`}
+              style={{
+                minWidth: logoSize,
+                height: logoSize,
+                marginRight: gap,
+                position: "relative",
+              }}
             >
               <Image
                 src={skill.image}
                 alt={skill.name}
-                width={logoSize}
-                height={logoSize}
-                style={{ display: "block" }}
+                fill
+                style={{ objectFit: "contain" }}
               />
             </div>
           ))}
@@ -93,25 +63,53 @@ export default function Skills() {
       </div>
 
       <style jsx>{`
-        .float {
-          animation: drifting 4s ease-in-out infinite;
+        .skills-track-wrapper {
+          overflow: hidden;
+          width: 100%;
+
+          /* Smooth fade using mask / gradient */
+          -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+          );
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-size: 100% 100%;
+          mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+          );
+          mask-repeat: no-repeat;
+          mask-size: 100% 100%;
         }
 
-        @keyframes drifting {
+        .skills-track {
+          display: flex;
+          width: max-content;
+          animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
           0% {
-            transform: translate(0, 0);
-          }
-          25% {
-            transform: translate(10px, -5px);
-          }
-          50% {
-            transform: translate(-10px, 5px);
-          }
-          75% {
-            transform: translate(8px, -3px);
+            transform: translateX(0);
           }
           100% {
-            transform: translate(0, 0);
+            transform: translateX(-50%);
+          }
+        }
+
+        .skills-track div {
+          flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+          .skills-track {
+            animation: scroll 12s linear infinite;
           }
         }
       `}</style>
