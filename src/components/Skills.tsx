@@ -19,6 +19,7 @@ const skills = [
   { name: "Next.js", image: "/nextjs.png" },
   { name: "NodeJS", image: "/node.png" },
   { name: "Redis", image: "/redislogo.png" },
+  { name: "Redux", image: "/redux.png" },
 ];
 
 export default function Skills() {
