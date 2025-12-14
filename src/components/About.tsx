@@ -72,7 +72,7 @@ export default function About() {
         }}
       >
         <Image
-          src="/landing_page_me.jpg"
+          src="/landing_page_me.png"
           alt="me"
           width={350}
           height={400}
