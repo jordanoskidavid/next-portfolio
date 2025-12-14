@@ -13,7 +13,7 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-const PREVIEW_IMAGE = "/landingpage_david.jpg";
+const PREVIEW_IMAGE = "/landingpage_david.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://davidjordanoski.dev"),
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "Portfolio site - David Jordanoski",
   openGraph: {
     title: "David Jordanoski - Software Engineer",
-    description: "Portfolio site - David Jordanoski",
+    description: "Portfolio site",
     url: "https://davidjordanoski.dev",
     siteName: "David Jordanoski",
     images: [
