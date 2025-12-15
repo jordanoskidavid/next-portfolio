@@ -13,7 +13,7 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-const PREVIEW_IMAGE = "/landingpage_david.png";
+const PREVIEW_IMAGE = "/landingpagedavid.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://davidjordanoski.dev"),
