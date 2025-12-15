@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://davidjordanoski.dev
+
+# Sitemaps
+Sitemap: https://davidjordanoski.dev/sitemap.xml

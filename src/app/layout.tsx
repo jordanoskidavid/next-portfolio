@@ -70,6 +70,28 @@ export default function RootLayout({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "David Jordanoski",
+              url: "https://davidjordanoski.dev",
+              image: "https://davidjordanoski.dev/landingpagedavid.png",
+              jobTitle: "Software Engineer",
+              address: {
+                addressRegion: "North Macedonia",
+                addressCountry: "MK",
+              },
+              sameAs: [
+                "https://github.com/jordanoskidavid",
+                "https://www.linkedin.com/in/david-jordanoski-39047023a/",
+              ],
+            }),
+          }}
+        />
       </head>
 
       <body className={poppins.variable}>
