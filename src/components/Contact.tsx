@@ -3,7 +3,6 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Image from "next/image";
-import { keyframes } from "@mui/system";
 import { Link } from "@mui/material";
 
 export default function Contact() {
@@ -27,7 +26,7 @@ export default function Contact() {
         sx={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center", // <-- vertically center if heights differ
+          alignItems: "center",
 
           gap: { xs: 4, md: 8 },
         }}
