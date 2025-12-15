@@ -18,7 +18,7 @@ const RoundedButton = styled(Button)(({ theme }) => ({
 
   [theme.breakpoints.down("md")]: {
     "&:hover": {
-      backgroundColor: "inherit", // keep the same
+      backgroundColor: "inherit",
       color: "inherit",
       boxShadow: "none",
     },

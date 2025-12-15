@@ -1,10 +1,7 @@
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 export default function Footer() {
-  const theme = useTheme();
-
   return (
     <Box
       component="footer"
