@@ -138,6 +138,7 @@ export default function Landing() {
         <Image
           src="/side_image_doodles.png"
           alt="doodles"
+          priority
           width={440}
           height={440}
           style={{
