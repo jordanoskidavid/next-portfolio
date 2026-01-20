@@ -8,7 +8,7 @@ export default function WorkHistory() {
       logo: "/teamliftlogo.png",
       company: "TeamLift",
       role: "Software Engineer",
-      period: "01.2026 — Now",
+      period: "02.2026 — Now",
       location: "Brooklyn, New York - Remote",
     },
     {
