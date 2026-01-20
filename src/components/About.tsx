@@ -74,10 +74,11 @@ export default function About() {
         <Image
           src="/landing_page_me.png"
           alt="me"
+          priority
           width={350}
           height={400}
           style={{
-            maxWidth: "100%",
+            width: "100%",
             height: "auto",
             borderRadius: "16px",
             transform: "rotate(5deg)",

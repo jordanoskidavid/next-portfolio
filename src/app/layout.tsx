@@ -6,6 +6,7 @@ import theme from "../theme";
 import EmotionRegistry from "@/lib/EmotionRegistry";
 import ClientOnly from "@/lib/ClientOnly";
 import SmoothScrollProvider from "@/lib/smoothScroll";
+import Script from "next/script";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -17,10 +18,12 @@ const PREVIEW_IMAGE = "/landingpagedavid.png";
 export const metadata: Metadata = {
   metadataBase: new URL("https://davidjordanoski.dev"),
   title: "David Jordanoski - Software Engineer",
-  description: "Portfolio site - David Jordanoski",
+  description: "Portfolio Site - David Jordanoski - Software Engineer",
   openGraph: {
-    title: "David Jordanoski - Software Engineer",
-    description: "Portfolio site",
+    title:
+      "David Jordanoski - Fullstack & Software Engineer | North Macedonia | Давид Јорданоски | Софтвер Инженер | Македонија",
+    description:
+      "Portfolio site of David Jordanoski - Software Engineer from Macedonia, specializing in Web Development - Frontend, Backend, Fullstack, AI | Портфолио на Давид Јорданоски - Софтвер Инженер - Македонија",
     url: "https://davidjordanoski.dev",
     siteName: "David Jordanoski",
     images: [
@@ -70,14 +73,16 @@ export default function RootLayout({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-
-        <script
+        <Script
+          id="schema-person"
           type="application/ld+json"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "David Jordanoski",
+              alternateName: "Давид Јорданоски",
               url: "https://davidjordanoski.dev",
               image: "https://davidjordanoski.dev/landingpagedavid.png",
               jobTitle: "Software Engineer",
@@ -88,6 +93,17 @@ export default function RootLayout({
               sameAs: [
                 "https://github.com/jordanoskidavid",
                 "https://www.linkedin.com/in/david-jordanoski-39047023a/",
+              ],
+              knowsAbout: [
+                "Software Engineering",
+                "Fullstack Development",
+                "Next.js",
+                "React",
+                "NestJS",
+                "Go",
+                "AI",
+                "TypeScript",
+                "Software Architecture",
               ],
             }),
           }}

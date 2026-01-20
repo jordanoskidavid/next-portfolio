@@ -13,6 +13,7 @@ interface WorkItem {
   company: string;
   role: string;
   period: string;
+  location: string;
 }
 
 interface CustomTableProps {
@@ -95,14 +96,21 @@ export default function CustomEduTable({ title, edurows }: CustomTableProps) {
                       sx={{
                         display: "flex",
                         justifyContent: "space-between",
-                        fontSize: { xs: 11, sm: 13 },
+                        alignItems: "flex-start",
+                        fontSize: { xs: 12, sm: 13 },
                         color: "text.secondary",
                       }}
                     >
-                      <Box>{row.role}</Box>
-                      <Box sx={{ marginLeft: "50px", mb: "2px" }}>
-                        {row.period}
+                      <Box sx={{ flex: 1, pr: 3 }}>
+                        <Typography sx={{ fontSize: "inherit" }}>
+                          {row.role}
+                        </Typography>
+                        <Typography sx={{ fontSize: 12, opacity: 0.8 }}>
+                          {row.location}
+                        </Typography>
                       </Box>
+
+                      <Box sx={{ whiteSpace: "nowrap" }}>{row.period}</Box>
                     </Box>
                   </Box>
                 </Box>
